@@ -1065,7 +1065,7 @@ def plot_binary_metric_bars(metrics_df, attack_name, save_path_no_ext):
     ax.set_ylim(0, 105)
     ax.grid(axis="y")
 
-    compact_legend(ax, loc="upper center", ncol=3)
+    compact_legend(ax, loc="upper right", ncol=1)
     make_axes_bold(ax)
 
     fig.tight_layout()
@@ -1107,7 +1107,7 @@ def plot_training_time_breakdown(stage_timing_df, save_path_no_ext):
     ax.set_ylabel("Training Time (s)")
     ax.grid(axis="y")
 
-    compact_legend(ax, loc="upper center", ncol=3)
+    compact_legend(ax, loc="upper right", ncol=1)
     make_axes_bold(ax)
 
     fig.tight_layout()
@@ -1450,11 +1450,27 @@ def plot_accuracy_comm_dual_axis(comm_acc_df, save_path_no_ext):
     h1, l1 = ax1.get_legend_handles_labels()
     h2, l2 = ax2.get_legend_handles_labels()
 
+    # ax1.legend(
+    #     h1 + h2,
+    #     l1 + l2,
+    #     loc="lower center",
+    #     ncol=2,
+    #     fontsize=6.2,
+    #     frameon=True,
+    #     framealpha=1.0,
+    #     edgecolor="black",
+    #     borderpad=0.25,
+    #     labelspacing=0.20,
+    #     columnspacing=0.55,
+    #     handlelength=1.2
+    # )
+
     ax1.legend(
         h1 + h2,
         l1 + l2,
-        loc="lower center",
-        ncol=2,
+        loc="center left",
+        bbox_to_anchor=(0.02, 0.50),
+        ncol=1,
         fontsize=6.2,
         frameon=True,
         framealpha=1.0,
